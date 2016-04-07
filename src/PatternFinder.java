@@ -65,11 +65,16 @@ public class PatternFinder extends AnAction {
           //Clean search for multiple select scenarious {{> atoms-text-paragraph-medium}}
           currentlySelectedPattern = currentlySelectedPattern.trim();
 
+          //TODO Replace with nice Regex ASAP
           currentlySelectedPattern = currentlySelectedPattern.replace("{{> ", "");
+          currentlySelectedPattern = currentlySelectedPattern.replace("{{>", "");
+          currentlySelectedPattern = currentlySelectedPattern.replace(" }}", "");
           currentlySelectedPattern = currentlySelectedPattern.replace("}}", "");
 
+          currentlySelectedPattern = currentlySelectedPattern.trim();
+
         //Path to patterns
-        getFileNames(currentlySelectedPattern, filenames, Paths.get(basePath + "/source/_patterns"));
+        getFileNames(currentlySelectedPattern.toLowerCase(), filenames, Paths.get(basePath + "/source/_patterns"));
 
         //File found
         if(filenames.get(0) != null)
@@ -98,16 +103,17 @@ public class PatternFinder extends AnAction {
           getFileNames(search, fileNames, path);
         } else {
 
-          String filePath = path.toAbsolutePath().toString().toLowerCase();
-
+          String fileName = path.toAbsolutePath().getFileName().toString();
           String[] data = search.split("-");
-          data = (String[])ArrayUtils.remove(data, 0);
+          if(data[0] != null && (data[0].equals("atoms") || data[0].equals("molecules") || data[0].equals("organisms")))
+            data = (String[])ArrayUtils.remove(data, 0);
 
           String differentSearchTerm = String.join("-", data).toLowerCase();
 
           //Search for patternlab identifier in filesystem
-          if(filePath.contains(search.toLowerCase()) || filePath.contains(differentSearchTerm)) {
+          if(fileName.contains(differentSearchTerm) || fileName.contains(search)) {
             fileNames.add(path.toAbsolutePath().toString());
+
           }
 
         }
