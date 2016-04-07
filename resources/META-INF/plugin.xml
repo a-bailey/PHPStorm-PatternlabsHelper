@@ -16,7 +16,7 @@
 <idea-plugin version="2">
   <id>de.alexbailey.patternlabinspector</id>
   <name>Patternlab Inspector</name>
-  <version>1.0</version>
+  <version>0.1</version>
   <vendor email="alex@lastmancoding.com" url="http://www.alexbailey.de">oddity</vendor>
 
   <description><![CDATA[
@@ -47,7 +47,7 @@
 
   <actions>
 
-    <action id="EditorIllustration" class="PatternFinder" text="Find Pattern Source"
+    <action id="EditorIllustration" class="PatternFinder" text="Jump to pattern"
             description="Find the pattern file">
       <keyboard-shortcut keymap="$default" first-keystroke="meta P"/>
 

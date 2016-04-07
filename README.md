@@ -11,7 +11,7 @@ Select the include path in a mustache template
 
  {{> organisms-my-example }}
 
-right click to open the context menu and select "Find Pattern source"
+right click to open the context menu and select "Jump to pattern"
 
 ### Bugs
 
