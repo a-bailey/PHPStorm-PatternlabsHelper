@@ -3,7 +3,7 @@ Helps you find included patternlab templates in your mustache templates
 
 ##Download
 
-compiled plugin
+[compiled plugin](https://github.com/lmc-abailey/PHPStorm-PatternlabsHelper/blob/master/PatternlabInspector.zip)
 
 ## Manual
 
